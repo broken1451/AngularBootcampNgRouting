@@ -1,0 +1,10 @@
+
+<ng-container *ngIf="contact; else elseTemplate">
+    <h1>contacto: {{ id }}</h1>
+    <h2>Nombre: {{ contact |nombreCompleto }}</h2>
+    <h2>Email: {{ contact?.email }}</h2>
+</ng-container>
+<ng-template #elseTemplate>
+    <p>Error en el contacto</p>
+</ng-template>
+<a [routerLink]="['/dashboard/contacts']" [queryParams]="{sex:filtroPrevio}" routerLinkActive="router-link-active" >Volver</a>

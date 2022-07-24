@@ -1,0 +1,23 @@
+<h1>Tus contactos</h1>
+
+<div *ngIf="loading">
+    <mat-spinner></mat-spinner>
+    <h6>Cargando...</h6>
+</div>
+
+<!-- Listar los contactos y poder navegar al pinchar uno de ellos al detalle de contacto -->
+<div *ngFor="let contact of listContact?.results; let i=index">
+    <div [routerLink]="['/dashboard/contacts',contact.id.name]" [state]="{data:{contact,filtroSex}}" routerLinkActive="router-link-active"  >
+        <h6 class="contacto">{{contact.name.first}} {{contact.name.last}}</h6>
+        <button (click)="backHome(contact)" mat-raised-button color="primary">Seleccionar amigo invisible</button>
+    </div>
+</div>
+
+<ng-container *ngIf="filtroSex === 'female' || filtroSex === 'male'; else elseTemplate">
+    <p>Mostrando lista filtrada por: "{{filtroSex}}"</p>
+</ng-container>
+<ng-template #elseTemplate>
+    <p>Mostrando lista de contactos completa</p>
+</ng-template>
+<a [routerLink]="['/dashboard']"  routerLinkActive="router-link-active" >Volver</a>
+

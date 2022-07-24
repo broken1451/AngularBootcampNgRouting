@@ -1,0 +1,18 @@
+<h1>Home Page</h1>
+<h3>Bienvenido</h3>
+<ng-container *ngIf="contactSelected; else elseTemplate">
+    <h4>Tu Amigo Innvisible es: {{contactSelected.name.first}}</h4>
+</ng-container>
+<ng-template #elseTemplate>
+    <div>
+        <p>Selecciona a tu amigo invisible</p>
+    </div>
+</ng-template>
+
+<button (click)="goToContacts()" mat-raised-button color="primary" type="button">ver todos tus contactos</button>
+
+<div>
+    <p>Filtros:</p>
+    <a [routerLink]="['/dashboard/contacts']" [queryParams]="{sex:'female'}" routerLinkActive="router-link-active" >Amigas |</a>
+    <a [routerLink]="['/dashboard/contacts']" [queryParams]="{sex:'male'}"> Amigos</a>
+</div>

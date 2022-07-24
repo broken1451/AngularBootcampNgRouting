@@ -1,0 +1,22 @@
+// clases para niveles de tareas
+.urgent-task{
+    color: orange;
+  }
+  
+  .blocking-task{
+    color: tomato;
+  }
+  .info-task{
+    color: blue;
+  }
+  
+  .msg-good{
+    color: green;
+    font-weight: bold;
+  }
+  
+  .msg-fail{
+    color: tomato;
+    font-weight: bold;
+  }
+
